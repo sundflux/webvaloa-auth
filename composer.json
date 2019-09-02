@@ -1,6 +1,6 @@
 {
     "name": "sundflux/webvaloa-auth",
-    "description": "Webvaloa core, part of Webaloa platform",
+    "description": "Webvaloa auth, part of Webaloa platform",
     "keywords": ["webvaloa"],
     "homepage": "http://github.com/sundflux/webvaloa-auth",
     "type": "library",
