@@ -40,6 +40,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 Changes are grouped by added, fixed or changed feature.
 
+### [3.0.3] - 2019-09-03
+- Add ContentAccess helper.
+
 ### [3.0.2] - 2019-09-03
 - Add User and Role from main webvaloa repository.
 
