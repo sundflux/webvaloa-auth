@@ -171,20 +171,31 @@ class Role
 
     /**
      * @param $name
-     * @return bool|int|type
+     * @param int $systemRole
+     * @return bool|int
      * @throws Db\DBException
      */
-    public function addRole($name)
+    public function addRole($name, $systemRole = 0)
     {
         $db = \Webvaloa\Webvaloa::DBConnection();
 
         // Install plugin
         $object = new Db\Item('role', $db);
         $object->role = $name;
-        $object->system_role = 0;
+        $object->system_role = $systemRole;
         $this->roleID = $object->save();
 
         return $this->roleID;
+    }
+
+    /**
+     * @param $name
+     * @return bool|int
+     * @throws Db\DBException
+     */
+    public function addSystemRole($name)
+    {
+        return $this->addRole($name, 1);
     }
 
     /**
