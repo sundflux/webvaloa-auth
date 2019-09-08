@@ -33,6 +33,7 @@
 namespace Webvaloa;
 
 use Libvaloa\Db;
+use Libvaloa\Debug\Debug;
 use RuntimeException;
 
 /**
@@ -108,6 +109,8 @@ class Role
                 return $v->id;
             }
         }
+
+        return false;
     }
 
     /**
@@ -177,12 +180,23 @@ class Role
      */
     public function addRole($name, $systemRole = 0)
     {
+        if ($existingRoleId = $this->getRoleId($name)) {
+            // Role already exists.
+
+            return $existingRoleId;
+        }
+
         $db = \Webvaloa\Webvaloa::DBConnection();
 
         // Install plugin
         $object = new Db\Item($db, 'role');
         $object->role = $name;
         $object->system_role = $systemRole;
+        $object->parent_of = 0;
+        $object->meta = json_encode('');
+
+        Debug::__print($object);
+
         $this->roleID = $object->save();
 
         return $this->roleID;
