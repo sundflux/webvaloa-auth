@@ -196,13 +196,7 @@ class Auth
      * @return bool True (access granted) or false (access denied)
      */
     public function authorize($controller, $userID = false)
-    {     * @param string $module Controller name
-     *
-     * @return bool True (access granted) or false (access denied)
-     */
-
-    /**
-
+    {
         $auth = new $this->backend();
 
         // trying to get from other installation on the same server
@@ -220,12 +214,6 @@ class Auth
                 return false;
             }
         }
-     * @param string $module Controller name
-     *
-     * @return bool True (access granted) or false (access denied)
-     */
-
-    /**
 
         if (!isset($userID)) {
             return false;
